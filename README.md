@@ -30,13 +30,13 @@ https://transaction-risk-detector.onrender.com
 - **Algorithm:** XGBoost Classifier (Gradient Boosted Decision Trees)
 - **Problem Type:** Binary Classification (Fraud / Non-Fraud)
 - **Imbalance Handling:** `scale_pos_weight`
-- **Evaluation Metric:** PR-AUC (Precision-Recall AUC)
+- **Evaluation Metric:** PR-AUC (Precision–Recall AUC)
 - **Output:**
   - Fraud Probability
-  - Final Risk Classification
+  - Final Risk Classification (Low Risk / High Risk)
 
-### Why PR-AUC?
-Fraud datasets are highly imbalanced. PR-AUC focuses on **precision & recall of the minority (fraud) class**, making it more reliable than accuracy.
+### 📌 Why PR-AUC?
+Fraud datasets are highly imbalanced. PR-AUC focuses on **precision and recall of the minority (fraud) class**, making it more reliable than accuracy.
 
 ---
 
@@ -45,8 +45,8 @@ Fraud datasets are highly imbalanced. PR-AUC focuses on **precision & recall of 
 - ✅ Real-time transaction risk prediction  
 - ✅ Probability-based fraud scoring  
 - ✅ Handles severe class imbalance  
-- ✅ Clean, responsive UI  
-- ✅ End-to-end ML pipeline  
+- ✅ Clean and responsive UI  
+- ✅ End-to-end ML inference pipeline  
 - ✅ Dockerized deployment  
 - ✅ Auto-deploy from GitHub to Render  
 - ✅ Production-style logging & exception handling  
@@ -73,6 +73,9 @@ Fraud datasets are highly imbalanced. PR-AUC focuses on **precision & recall of 
 
 ---
 
+## 📂 Project Structure
+
+```text
 Transaction-Risk-Detector/
 │
 ├── app.py                     # Flask application entry point
@@ -99,8 +102,6 @@ Transaction-Risk-Detector/
 │
 ├── README.md                   # Project documentation
 
-
----
 
 ## 🔁 ML Workflow
 
