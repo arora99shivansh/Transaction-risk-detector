@@ -73,24 +73,31 @@ Fraud datasets are highly imbalanced. PR-AUC focuses on **precision & recall of 
 
 ---
 
-## 📂 Project Structure
-├── app.py
-├── Dockerfile
-├── requirements.txt
+Transaction-Risk-Detector/
+│
+├── app.py                     # Flask application entry point
+├── Dockerfile                 # Docker configuration for deployment
+├── requirements.txt           # Python dependencies
+│
 ├── artifacts/
-│ └── model.pkl
+│   └── model.pkl              # Trained ML model
+│
 ├── src/
-│ └── transaction/
-│ ├── pipelines/
-│ │ └── prediction_pipeline.py
-│ ├── logger/
-│ └── exception/
+│   └── transaction/
+│       ├── pipelines/
+│       │   └── prediction_pipeline.py   # Inference pipeline
+│       │
+│       ├── logger/             # Custom logging module
+│       └── exception/          # Custom exception handling
+│
 ├── templates/
-│ └── index.html
+│   └── index.html              # Frontend HTML template
+│
 ├── static/
-│ └── css/
-│ └── styles.css
-├── README.md
+│   └── css/
+│       └── styles.css          # UI styling
+│
+├── README.md                   # Project documentation
 
 
 ---
