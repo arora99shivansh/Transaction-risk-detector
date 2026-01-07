@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import pandas as pd
-import sys
 import os
+import sys
 
 from src.transaction.pipelines.prediction_pipeline import PredictionPipeline
 from src.transaction.logger import logger
@@ -48,18 +48,11 @@ def index():
 
         except Exception as e:
             logger.error("Prediction failed")
-            error = str(e)
+            error = "Prediction failed. Please check input values."
 
     return render_template("index.html", result=result, error=error)
 
 
 if __name__ == "__main__":
-    logger.info("Starting Flask App")
-
-    # 🔥 IMPORTANT FOR RENDER
     port = int(os.environ.get("PORT", 10000))
-
-    app.run(
-        host="0.0.0.0",
-        port=port
-    )
+    app.run(host="0.0.0.0", port=port)

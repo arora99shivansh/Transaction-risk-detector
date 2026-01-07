@@ -15,7 +15,15 @@
         Machine Learning based real-time transaction risk analysis
     </div>
 
+    <!-- 🔥 MODEL INFO -->
+    <div class="model-info">
+        <span>Model:</span> XGBoost Classifier |
+        <span>Metric:</span> PR-AUC |
+        <span>Imbalance:</span> scale_pos_weight
+    </div>
+
     <form method="POST">
+
         <div>
             <label>Transaction Amount</label>
             <input type="number" step="any" name="amt" required>
@@ -94,22 +102,39 @@
     </form>
 
     {% if result %}
-        <div class="result {% if result.prediction == 1 %}fraud{% else %}safe{% endif %}">
-            <h2>
-                {% if result.prediction == 1 %}
-                    🚨 Fraud Detected
-                {% else %}
-                    ✅ Transaction Safe
-                {% endif %}
-            </h2>
-            <div class="prob">
-                Fraud Probability: {{ result.probability }}
+    <div class="result {% if result.prediction == 1 %}fraud{% else %}safe{% endif %}">
+        <h2>
+            {% if result.prediction == 1 %}
+                🚨 High Risk Transaction
+            {% else %}
+                ✅ Low Risk Transaction
+            {% endif %}
+        </h2>
+
+        <div class="prob">
+            Fraud Probability: {{ result.probability }}
+        </div>
+
+        <!-- 🔥 PROGRESS BAR -->
+        <div class="progress">
+            <div class="bar {% if result.prediction == 1 %}fraud-bar{% else %}safe-bar{% endif %}"
+                 style="width: {{ result.probability * 100 }}%">
             </div>
         </div>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="result fraud">
+        ⚠️ {{ error }}
+    </div>
     {% endif %}
 
     <footer>
-        © Fraud Detection ML System | Flask + ML
+        © Fraud Detection ML System | Flask + XGBoost <br>
+        <small>
+            ⚠️ Demo system. Predictions are probabilistic and for educational use only.
+        </small>
     </footer>
 </div>
 
