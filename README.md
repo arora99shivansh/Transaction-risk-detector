@@ -101,7 +101,7 @@ Transaction-Risk-Detector/
 │       └── styles.css          # UI styling
 │
 ├── README.md                   # Project documentation
-
+```
 
 ## 🔁 ML Workflow
 
